@@ -1,0 +1,97 @@
+body {
+	color: white;
+    text-align: center;
+    background-color: #232323;
+    font-family: "Montserrat", "Avenir";
+}
+
+button {
+	border:none;
+	background: none;
+	text-transform: uppercase;
+	/*it will take 100% of the container div*/
+	height: 100%;
+	font-weight: 700;
+	color: steelblue;
+	letter-spacing: 1px;
+	font-size: inherit;
+}
+
+button:hover {
+	/*oposite of what they are*/
+	color: black;
+	background: white;
+}
+
+.score-board {
+	float: left;
+}
+
+/*modal Game Over*/
+.backdrop {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.modal {
+	color: black;
+    display: none;
+    position: fixed;
+    background: white;
+    padding: 20px;
+    width: 320px;
+    top: 200px;
+    left: calc(50% - 140px);
+    z-index: 1;
+}
+
+.modal h1{
+    text-align: center;
+    margin: 0;
+}
+
+.modal button {
+    display: block;
+    margin: 0 auto;
+    background: #32a8a2;
+    color: white;
+    border: 1px solid #521751;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal button:hover,
+.modal button:active {
+    background: #35697a;
+}
+
+.modal button:focus {
+    outline: none;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 42px;
+    color: #333;
+    transform: rotate(45deg);
+    cursor: pointer;
+    &:hover {
+        color: #666;
+    }
+}
+
+    @media (min-width: 400px) {
+        .modal {
+            font-size: 22px;
+            width: 380px;
+            left: calc(50% - 190px);
+        }
+    }
