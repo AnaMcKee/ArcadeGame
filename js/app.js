@@ -22,15 +22,16 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
         this.speed = Math.floor(Math.random() * (300 - 30 + 1) + 30);
     }
-    // check collision
-    if((player.x - this.x) < 65 &&
-            (player.y - this.y) < 65 &&
-            (this.x - player.x) < 65 &&
-            (this.y - player.y) < 65){
+    // check collision following Axis-Aligned Bounding Box algorithm
+    // source https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    if (this.x < player.x + 62 &&
+        this.x + 62 > player.x &&
+        this.y < player.y + 62 &&
+        this.y + 72 > player.y){
                 player.resetPosition();
                 player.lives -= 1;
                 player.lifeLoss.innerHTML = player.lives;
-            }
+        }
 }
 
 // Draw the enemy on the screen, required method for game
@@ -64,7 +65,6 @@ var Player = function (x, y, speed){
 
 
 Player.prototype.update = function(dt) {
-     // this.x  += this.speed * dt;
     // prevent player from going off canvas
     if(this.x < 0){
         this.x = 0;
@@ -93,12 +93,13 @@ Player.prototype.resetPosition = function() {
 }
 
 Player.prototype.gameOver = function() {
+    // check if there is no lives left, to give player the final score
     if(this.lives === 0){
         this.backdrop.style.display = 'block';
         this.modal.style.display = 'block';
         this.finalScore.innerHTML = this.score;
+        document.querySelector(".score-board").style.display = 'none';
     };
-
 }
 
 Player.prototype.render = function() {
