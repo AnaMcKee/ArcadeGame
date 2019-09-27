@@ -1,8 +1,9 @@
 body {
 	color: white;
     text-align: center;
-    background-color: #232323;
+    background-color: #042447;
     font-family: "Montserrat", "Avenir";
+    font-size: 20px;
 }
 
 button {
@@ -23,10 +24,9 @@ button:hover {
 	background: white;
 }
 
-.score-board {
-	float: left;
+#para {
+	margin-bottom: 0;
 }
-
 /*modal Game Over*/
 .backdrop {
     display: none;
@@ -73,19 +73,6 @@ button:hover {
 
 .modal button:focus {
     outline: none;
-}
-
-.close {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 42px;
-    color: #333;
-    transform: rotate(45deg);
-    cursor: pointer;
-    &:hover {
-        color: #666;
-    }
 }
 
     @media (min-width: 400px) {
