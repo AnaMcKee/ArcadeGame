@@ -94,6 +94,8 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        gem.update();
+
     }
 
     /* This function initially draws the "game level", it will then call
@@ -154,6 +156,8 @@ var Engine = (function(global) {
         });
 
         player.render();
+        gem.render();
+
     }
 
     /* This function does nothing but it could have been a good place to
@@ -168,8 +172,8 @@ var Engine = (function(global) {
     function restart(){
         document.querySelector(".backdrop").style.display = 'none';
         document.querySelector(".modal").style.display = 'none';
+        document.querySelector(".score-board").style.display = 'block';
         player.lives = 3;
-        console.log(player.lives);
         document.getElementById("lives").innerHTML = player.lives;
         player.score = 0;
         document.getElementById("score").innerHTML = player.score;
@@ -183,7 +187,10 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Gem Blue.png',
+        'images/Gem Green.png',
+        'images/Gem Orange.png'
     ]);
     Resources.onReady(init);
 
